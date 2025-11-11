@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url('https://i10.glitter-graphics.org/pub/707/707570g7y1zfvon9.gif');
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: linear-gradient(135deg, rgb(255, 108, 199) 0%, rgb(248, 168, 231) 100%);
+    border-radius: 20px;
+    box-shadow: 20px;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    color: rgb(43, 3, 33);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+}
+
+.start-screen {
+    text-align: center;
+}
+
+.start-screen h2 {
+    color: black;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
