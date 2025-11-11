@@ -22,14 +22,24 @@
 
         <div class="quiz-screen" id="quizScreen">
             <div class="score-tracker">
-                Score: <span id="questionCounter"> Questions 1 thru 15 </span>
+                Score: <span id="currentScore">0</span>/<span id="totalQuestions">15</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-
+            <div class="question-counter" id="questionCounter"> Questions 1 of 15</div>
+            <div class="question" id="questionText"></div>
+            <div class="option" id="optionContainer"></div>
+            <div class="options" id="optionsContainer"></div>
+            <button class="btn next-btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
         </div>
-
+        
+        <div class="results-screen" id="resultsScreen">
+            <h2>Complete! Great job, beautiful!</h2>
+            <div class="score-display" id="finalScore"></div>
+            <div class="score-message" id="scoreMessage"></div>
+            <button class="btn" onclick="restartQuiz()">Wanna Play Again?</button>
+        </div>
     </div>
 </body>
 </html>
