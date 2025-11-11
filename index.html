@@ -8,6 +8,28 @@
     <title>Kay's FULL Stack Quiz</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <h1>Kay's BootCamp Quiz</h1>
+            <p>Test that knowledge!</p>
+        </div>
+
+        <div class="start-screen" id="startScreen">
+            <h2>Ready to test what you learned?</h2>
+            <p>We are about to cover everything you've learned so far within your first couple weeks in Perscholas</p>
+            <button class="btn" onclick="startQuiz()">Start Quiz!</button>
+        </div>
+
+        <div class="quiz-screen" id="quizScreen">
+            <div class="score-tracker">
+                Score: <span id="questionCounter"> Questions 1 thru 15 </span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
