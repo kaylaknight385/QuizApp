@@ -68,7 +68,157 @@ body {
 }
 
 .progress-fill {
-    background: linear-gradient();
+    background: linear-gradient(90deg, #ea66cd 0%, #952bff 100%);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3 ease;
+}
+
+.question-coutner {
+    color: rgb(212, 0, 35);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-size: 1.3rem;
+    flex-direction: column;
+    gap: 12px;
+}
+.magic-button {
+  --button-color: #d11f87;
+  --button-hover-color: #6e0063;
+  
+  position: relative;
+  padding: 12px 24px;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.magic-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Star styling */
+.magic-button svg {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  pointer-events: none;
+}
+
+.magic-button .fil0 {
+  fill: #fafaf9;
+}
+
+/* Star positions and animations */
+.star-1 {
+  top: 20%;
+  left: 20%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-1 2s linear infinite;
+}
+
+.star-2 {
+  top: 60%;
+  left: 80%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-2 2s linear infinite;
+}
+
+.star-3 {
+  top: 10%;
+  left: 80%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-3 2s linear infinite;
+}
+
+.star-4 {
+  top: 80%;
+  left: 10%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-4 2s linear infinite;
+}
+
+.star-5 {
+  top: 50%;
+  left: 50%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-5 2s linear infinite;
+}
+
+.star-6 {
+  top: 30%;
+  left: 90%;
+  scale: 0;
+  rotate: 0deg;
+  animation: star-6 2s linear infinite;
+}
+
+/* Star animations */
+@keyframes star-1 {
+  0%, 5% { scale: 0; rotate: 0deg; }
+  30% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+@keyframes star-2 {
+  0%, 10% { scale: 0; rotate: 0deg; }
+  40% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+@keyframes star-3 {
+  0%, 15% { scale: 0; rotate: 0deg; }
+  50% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+@keyframes star-4 {
+  0%, 20% { scale: 0; rotate: 0deg; }
+  60% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+@keyframes star-5 {
+  0%, 25% { scale: 0; rotate: 0deg; }
+  70% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+@keyframes star-6 {
+  0%, 30% { scale: 0; rotate: 0deg; }
+  80% { scale: 1; rotate: 180deg; }
+  100% { scale: 0; rotate: 360deg; }
+}
+
+.magic-button:hover .star-1,
+.magic-button:hover .star-2,
+.magic-button:hover .star-3,
+.magic-button:hover .star-4,
+.magic-button:hover .star-5,
+.magic-button:hover .star-6 {
+  animation-play-state: running;
+}
+
+.magic-button:not(:hover) .star-1,
+.magic-button:not(:hover) .star-2,
+.magic-button:not(:hover) .star-3,
+.magic-button:not(:hover) .star-4,
+.magic-button:not(:hover) .star-5,
+.magic-button:not(:hover) .star-6 {
+  animation-play-state: paused;
 }
 
 .results-screen {

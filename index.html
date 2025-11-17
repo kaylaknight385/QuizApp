@@ -1,46 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Kay's FULL Stack Quiz</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Kay's BootCamp Quiz</h1>
-            <p>Test that knowledge!</p>
-        </div>
+      <div class="header">
+        <h1>Kay's BootCamp Quiz</h1>
+        <p>Test that knowledge!</p>
+      </div>
 
-        <div class="start-screen" id="startScreen">
-            <h2>Ready to test what you learned?</h2>
-            <p>We are about to cover everything you've learned so far within your first couple weeks in Perscholas</p>
-            <button class="btn" onclick="startQuiz()">Start Quiz!</button>
-        </div>
+      <div class="start-screen" id="startScreen">
+        <h2>Ready to test what you learned?</h2>
+        <p>
+          We are about to cover everything you've learned so far within your
+          first couple weeks in Perscholas
+        </p>
+        <button class="btn" onclick="startQuiz()">Start Quiz!</button>
+      </div>
 
-        <div class="quiz-screen" id="quizScreen">
-            <div class="score-tracker">
-                Score: <span id="currentScore">0</span>/<span id="totalQuestions">30</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div class="question-counter" id="questionCounter"> Questions 1 of 30</div>
-            <div class="question" id="questionText"></div>
-            <div class="option" id="optionContainer"></div>
-            <div class="options" id="optionsContainer"></div>
-            <button class="btn next-btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+      <div class="quiz-screen" id="quizScreen">
+        <div class="score-tracker">
+          Score: <span id="currentScore">0</span>/<span id="totalQuestions"
+            >30</span
+          >
         </div>
-        
-        <div class="results-screen" id="resultsScreen">
-            <h2>Complete! Great job, beautiful!</h2>
-            <div class="score-display" id="finalScore"></div>
-            <div class="score-message" id="scoreMessage"></div>
-            <button class="btn" onclick="restartQuiz()">Wanna Play Again?</button>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
+        <div class="question-counter" id="questionCounter">
+          Questions 1 of 30
+        </div>
+        <div class="question" id="questionText"></div>
+        <div class="option" id="optionContainer"></div>
+        <div class="options" id="optionsContainer"></div>
+        <button class="btn next-btn" id="nextBtn" onclick="nextQuestion()">
+          Next Question
+        </button>
+      </div>
+
+      <div class="results-screen" id="resultsScreen">
+        <h2>Complete! Great job, beautiful!</h2>
+        <div class="score-display" id="finalScore"></div>
+        <div class="score-message" id="scoreMessage"></div>
+        <button class="btn" onclick="restartQuiz()">Wanna Play Again?</button>
+      </div>
     </div>
-</body>
+
+    <button class="magic-button">
+      <div class="star-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="star-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="star-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="star-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="star-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="star-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </svg>
+      </div>
+    </button>
+  </body>
 </html>
