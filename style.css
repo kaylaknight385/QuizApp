@@ -49,3 +49,28 @@ body {
     font-size: 1.5rem;
 }
 
+.start-screen h2 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 1.5rem
+}
+
+.quiz-screen {
+    display: none;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    height:10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient();
+}
+
+.results-screen {
+    display: none;
+}

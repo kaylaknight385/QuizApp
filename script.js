@@ -3,14 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const startScreen = document.getElementById('startScreen');
   const quizScreen = document.getElementById('quizScreen')
-  const resultScreen = document.getElementById('resultsScreen')
+  const resultsScreen = document.getElementById('resultsScreen')
   const questionText = document.getElementById('questionText')
-  const optionsContainer = document.getElementById('optionContainer')
+  const optionsContainer = document.getElementById('optionsContainer')
   const nextBtn = document.getElementById('nextBtn')
   const questionCounter = document.getElementById('questionCounter')
   const progressFill = document.getElementById('progressFill')
-  const currentScoreDisplay = document.getElementById('currentScoreDisplay')
-  const totalQuestionDisplay = document.getElementById('totalQuestionDisplay')
+  const currentScore = document.getElementById('currentScore')
+  const totalQuestions = document.getElementById('totalQuestions')
+  const startBtn = document.getElementById('startBtn');
+  const restartBtn = document.getElementById('restartBtn')
 
   const quizData = [
     {
@@ -48,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "No difference, they're the same",
         "<div> is block-level, <span> is inline",
         "<span> is block-level, <div> is inline",
-        "Both are always inline",
+        "Both are always inline", 
+        
       ],
       correct: 1,
     },
@@ -203,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Only once",
         "Only inside functions"
       ],
+      correct: 1
     },
      {
       question: "Which of these is NOT a JavaScript data type?",
@@ -500,7 +504,8 @@ window.startQuiz = function() {
   quizScreen.style.display = 'block';
   currentQuestionIndex = 0;
   score = 0;
-  totalQuestionDisplay.textContent = quizData.length;
+  currentScore.textContent = "0";
+  totalQuestions.textContent = quizData.length;
   loadQuestion();
 }
 
@@ -521,12 +526,12 @@ function loadQuestion() {
     const button = document.createElement('button');
     button.className = 'option-btn';
     button.textContent = option;
-    button.onclick = () => selectedAnswer(index);
+    button.onclick = () => selectAnswer(index);
     optionsContainer.appendChild(button);
   });
 }
 
-function selectedAnswer(selectedIndex) {
+function selectAnswer(selectedIndex) {
   if (selectedAnswer !==null) return;
 
   selectedAnswer = selectedIndex;
@@ -537,8 +542,8 @@ function selectedAnswer(selectedIndex) {
 
   if (selectedIndex === currentQuestion.correct) {
     score++;
-    buttonsp[selectedIndex].classList.add('correct');
-    currentScoreDisplay.textContent = score;
+    buttons[selectedIndex].classList.add('correct');
+    currentScore.textContent = score;
   } else {
     buttons[selectedIndex].classList.add('incorrect');
     buttons[currentQuestion.correct].classList.add('correct');
@@ -547,8 +552,40 @@ function selectedAnswer(selectedIndex) {
   nextBtn.style.display = 'block';
 }
 
+window.nextQuestion = function() {
+    currentQuestionIndex++;
+    
+    if (currentQuestionIndex < quizData.length) {
+      loadQuestion();
+    } else {
+      showResults();
+    }
+}
 
+function showResults() {
+    quizScreen.style.display = 'none';
+    resultsScreen.style.display = 'block';
+    
+    const percentage = (score / quizData.length) * 100;
+    document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+    
+    let message = '';
+    if (percentage >= 90) {
+      message = "Outstanding! You've mastered the fundamentals!";
+    } else if (percentage >= 70) {
+      message = "Great job! You've got a solid foundation! Keep practicing!";
+    } else if (percentage >= 50) {
+      message = "Good start! Review the topics you missed and try again!";
+    } else {
+      message = "Keep studying! Go through your notes and take the quiz again!";
+    }
+    
+    document.getElementById('scoreMessage').textContent = message;
+}
 
-
-
-})
+window.restartQuiz = function() {
+    resultsScreen.style.display = 'none';
+    startScreen.style.display = 'block';
+    currentScore.textContent = '0';
+}
+});
