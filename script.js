@@ -449,6 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Node Package Manager",
         "New Project Manager",
         "Node Programming Method",
+
         "Network Package Manager"
       ],
       correct: 0
@@ -524,12 +525,29 @@ function loadQuestion() {
 
   currentQuestion.options.forEach((option, index) => {
     const button = document.createElement('button');
-    button.className = 'option-btn';
+    button.className = 'option-btn magic-button';
     button.textContent = option;
     button.onclick = () => selectAnswer(index);
     optionsContainer.appendChild(button);
+
+    for (let i = 1; 1 <= 6; i++) {
+      const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      star.setAttribute('viewBox', '0 0 784.11 815.53');
+      star.classList.add(`star-${i}`);
+    
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.classList.add('fil0');
+      path.setAttribute('d', 'M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06 -407.78z');
+
+      star.appendChild(path);
+      button.appendChild(star);
+    }
+  
+    optionsContainer.appendChild(button);
+  }
+
   });
-}
+
 
 function selectAnswer(selectedIndex) {
   if (selectedAnswer !==null) return;
