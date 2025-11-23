@@ -513,6 +513,11 @@ window.startQuiz = function() {
 function loadQuestion() {
   selectedAnswer = null;
   nextBtn.style.display = 'none';
+  
+  // Hide AI explanation when loading new question
+  const aiExplanation = document.getElementById('aiExplanation');
+  aiExplanation.style.display = 'none';
+  aiExplanation.classList.remove('loading');
 
   const currentQuestion = quizData[currentQuestionIndex];
   questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
@@ -564,6 +569,9 @@ function selectAnswer(selectedIndex) {
   } else {
     buttons[selectedIndex].classList.add('incorrect');
     buttons[currentQuestion.correct].classList.add('correct');
+    
+    
+    getAIExplanation(currentQuestion, selectedIndex);
   }
 
   nextBtn.style.display = 'block';
@@ -606,6 +614,46 @@ window.restartQuiz = function() {
     currentScore.textContent = '0';
 }
 
+async function getAIExplanation(question, selectedIndex) {
+  const aiExplanation = document.getElementById('aiExplanation');
+  const aiExplanationContent = document.getElementById('aiExplanationContent');
+  
+
+  aiExplanation.style.display = 'block';
+  aiExplanation.classList.add('loading');
+  aiExplanationContent.textContent = "Hold on chile...I'm thinking...";
+  
+  try {
+    const correctAnswer = question.options[question.correct];
+    const wrongAnswer = question.options[selectedIndex];
+    
+    const response = await fetch('http://localhost:3000/api/explain', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        question: question.question,
+        wrongAnswer: wrongAnswer,
+        correctAnswer: correctAnswer
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    aiExplanation.classList.remove('loading');
+    aiExplanationContent.textContent = data.explanation;
+    
+  } catch (error) {
+    console.error('Error getting AI explanation:', error);
+    aiExplanation.classList.remove('loading');
+    aiExplanationContent.textContent = 'Oops! Could not load explanation right now. But aye...keep learning!';
+  }
+}
 
 
 

@@ -18,8 +18,7 @@
       <div class="start-screen" id="startScreen">
         <h2>Ready to test what you learned?</h2>
         <p>
-          We are about to cover everything you've learned so far within your
-          first couple weeks in Perscholas
+          We are about to cover everything you've learned so far in Perscholas
         </p>
         <button class="btn" onclick="startQuiz()">Start Quiz!</button>
       </div>
@@ -39,9 +38,9 @@
         <div class="question" id="questionText"></div>
         <div class="option" id="optionContainer"></div>
         <div class="options" id="optionsContainer"></div>
-        <div id="aiExplanation" style="display: none;">
-          <h3>Study Buddy</h3>
-          <div id="aiExplanationContent"></div>
+        <div id="aiExplanation" class="ai-explanation" style="display: none;">
+          <h3 class="ai-explanation-header">Study Buddy</h3>
+          <div id="aiExplanationContent" class="ai-explanation-content"></div>
         </div>
         <button class="btn next-btn" id="nextBtn" onclick="nextQuestion()">
           Next Question
