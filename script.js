@@ -528,9 +528,8 @@ function loadQuestion() {
     button.className = 'option-btn magic-button';
     button.textContent = option;
     button.onclick = () => selectAnswer(index);
-    optionsContainer.appendChild(button);
 
-    for (let i = 1; 1 <= 6; i++) {
+    for (let i = 1; i <= 6; i++) {
       const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       star.setAttribute('viewBox', '0 0 784.11 815.53');
       star.classList.add(`star-${i}`);
@@ -544,9 +543,9 @@ function loadQuestion() {
     }
   
     optionsContainer.appendChild(button);
-  }
 
   });
+}
 
 
 function selectAnswer(selectedIndex) {
@@ -606,4 +605,8 @@ window.restartQuiz = function() {
     startScreen.style.display = 'block';
     currentScore.textContent = '0';
 }
+
+
+
+
 });

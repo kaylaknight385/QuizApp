@@ -94,14 +94,14 @@ body {
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
-    overflow: hidden;
+    overflow: visible;
     transition: background-color 0.3s;
 }
 
 .magic-button:hover {
-  background-color: pink
+  background-color: rgb(146, 0, 24)
 }
 
 .magic-button svg {
@@ -112,7 +112,7 @@ body {
 }
 
 .magic-button .fil0 {
-  fill: #fafaf9;
+  fill: #f7c335;
 }
 
 /* Star positions and animations */
@@ -134,7 +134,7 @@ body {
 }
 
 .star-3 {
-  top: 10%;
+  top: 60%;
   left: 80%;
   scale: 0;
   rotate: 0deg;
